@@ -1,0 +1,222 @@
+.bms-data-display {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .overview-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .data-item {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .data-item.large {
+    grid-column: span 2;
+  }
+  
+  .data-label {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+    font-weight: 500;
+  }
+  
+  .data-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-color);
+  }
+  
+  .soc-value {
+    position: relative;
+    height: 30px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .soc-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 15px;
+    z-index: 1;
+    transition: width 0.5s ease;
+  }
+  
+  .soc-value span {
+    position: relative;
+    z-index: 2;
+    color: var(--dark-color);
+    font-weight: 600;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+  }
+  
+  .detail-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .detail-section {
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+    border-bottom: 1px solid var(--light-color);
+    padding-bottom: 8px;
+  }
+  
+  .cell-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+  }
+  
+  .stat-item {
+    display: flex;
+    gap: 5px;
+    font-size: 0.9rem;
+  }
+  
+  .stat-item span {
+    font-weight: 600;
+    color: var(--dark-color);
+  }
+  
+  .cells-grid,
+  .temperature-grid,
+  .protection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  
+  .cell-item,
+  .temp-item,
+  .protection-item {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .cell-item.balancing {
+    border: 1px solid var(--warning-color);
+    background-color: rgba(243, 156, 18, 0.1);
+  }
+  
+  .cell-label,
+  .temp-label,
+  .protection-label {
+    font-size: 0.8rem;
+    color: var(--gray-color);
+    font-weight: 500;
+  }
+  
+  .cell-value,
+  .temp-value,
+  .protection-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+  }
+  
+  .balancing-indicator {
+    font-size: 0.75rem;
+    color: var(--warning-color);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .balancing-indicator::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--warning-color);
+    animation: pulse 1.5s infinite;
+  }
+  
+  .protection-item.active {
+    border: 1px solid var(--danger-color);
+    background-color: rgba(231, 76, 60, 0.1);
+  }
+  
+  .timestamp {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--gray-color);
+    font-style: italic;
+    margin-top: 10px;
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .overview-section {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .cells-grid,
+    .temperature-grid,
+    .protection-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .overview-section {
+      grid-template-columns: 1fr;
+    }
+    
+    .data-item.large {
+      grid-column: span 1;
+    }
+    
+    .cells-grid,
+    .temperature-grid,
+    .protection-grid {
+      grid-template-columns: 1fr;
+    }
+  }
