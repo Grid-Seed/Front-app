@@ -69,4 +69,4 @@ Para más información ver `API/DEPLOYMENT.md`
 ## Licencia
 
 MIT
-Grupo Baterías en la Transición Energética
+Grid Seed
